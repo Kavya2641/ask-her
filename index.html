@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For You ❤️</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #ff4d6d;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #no {
+            background-color: #ccc;
+        }
+
+        #yes:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box" id="content">
+    <h1>Hey ❤️</h1>
+    <button onclick="start()">Open 💌</button>
+</div>
+
+<script>
+function start() {
+    document.getElementById("bgMusic").play();
+    document.getElementById("content").innerHTML = `
+        <h1>Will you be my girlfriend? ❤️</h1>
+        <button id="yes" onclick="yesClicked()">Yes 💖</button>
+        <button id="no" onmouseover="moveButton()">No 😢</button>
+    `;
+}
+
+function yesClicked() {
+    document.body.innerHTML = "<h1 style='color:white;'>You just made me the happiest person 🥰❤️</h1>";
+}
+
+function moveButton() {
+    var button = document.getElementById("no");
+    button.style.position = "absolute";
+    button.style.top = Math.random() * window.innerHeight + "px";
+    button.style.left = Math.random() * window.innerWidth + "px";
+}
+</script>
+
+</body>
+</html>
